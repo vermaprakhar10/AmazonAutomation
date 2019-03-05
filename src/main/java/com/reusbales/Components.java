@@ -2,7 +2,6 @@ package main.java.com.reusbales;
 
 
 
-import java.awt.print.Paper;
 import java.util.LinkedHashMap;
 
 
@@ -61,10 +60,11 @@ public class Components extends WebDriverStartUp {
 	}
 	
 	
-	public void getItemDescription(int resultIndex) throws Exception
+	public String getItemDescription(int resultIndex) throws Exception
 	{
-		System.out.println(resultsPage.getItemDetails(resultIndex));
+		String text=resultsPage.getItemDetails(resultIndex);
 		parseInternalItemDesc(resultIndex);
+		return text;
 	}
 	
 	

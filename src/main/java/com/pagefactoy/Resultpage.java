@@ -13,7 +13,7 @@ public class Resultpage {
 	
 	
 	
-	
+
 	
 	public String totalSearchResults() throws Exception
 	{

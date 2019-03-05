@@ -6,6 +6,7 @@ package test.java.testCases;
 
 import java.util.LinkedHashMap;
 
+import org.junit.AfterClass;
 import org.junit.Test;
 
 
@@ -39,6 +40,10 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 		
 	}
 	
-	
+	@AfterClass
+	public void PrintResult() throws Exception
+	{
+		
+	}
 	
 }
