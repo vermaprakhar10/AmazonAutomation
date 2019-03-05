@@ -39,7 +39,10 @@ public class Components extends WebDriverStartUp {
 		}
 	}
 
-	
+	/**
+	 * Method enters the search parameter in the search bar
+	 * @throws Exception
+	 */
 	public void searchItem(String itemToSearch) throws Exception {
 		try {
 			amazonHomePage.enterSearchResults(itemToSearch);
@@ -48,7 +51,10 @@ public class Components extends WebDriverStartUp {
 		}
 	}
 	
-	
+	/**
+	 * Method retruns the total search Results
+	 * @throws Exception
+	 */
 	public String  getTotalSearchResults() throws Exception
 	{
 		String totalResult=resultsPage.totalSearchResults();
@@ -59,7 +65,10 @@ public class Components extends WebDriverStartUp {
 		return totalResult;
 	}
 	
-	
+	/**
+	 * Returns the Item Description of based on the Item Indexs
+	 * @throws Exception
+	 */
 	public String getItemDescription(int resultIndex) throws Exception
 	{
 		String text=resultsPage.getItemDetails(resultIndex);
@@ -67,7 +76,10 @@ public class Components extends WebDriverStartUp {
 		return text;
 	}
 	
-	
+	/**
+	 *  Returns the internal Product Description
+	 * @throws Exception
+	 */
 	public String parseInternalItemDesc(int resultIndex) throws Exception
 	{
 		parseData=resultsPage.getInternalItemDesc(1).trim();	
@@ -76,6 +88,11 @@ public class Components extends WebDriverStartUp {
 	}
 	
 	
+	/**
+	 *  Check whether the Delivery Date is Estimated
+	 *  @return Boolean
+	 * @throws Exception
+	 */
 	public boolean isDeliveryDataEstimated() throws Exception
 	{
 		if(parseData.contains("Get it by")) {
@@ -86,6 +103,11 @@ public class Components extends WebDriverStartUp {
 	}
 	
 	
+	/**
+	 *  Retruns Availble Platform Type ie Paperback Kindle or Hardcover
+	 *  @return {@link LinkedHashMap}
+	 * @throws Exception
+	 */
 	public LinkedHashMap<String, String> returnPlatformAvailability() throws Exception
 	{
 		LinkedHashMap<String, String> hMap=new LinkedHashMap<String, String>();
@@ -106,6 +128,7 @@ public class Components extends WebDriverStartUp {
 		}
 		return hMap;
 	}
+	
 	
 	public void getAllEditionsPrice() throws Exception
 	{

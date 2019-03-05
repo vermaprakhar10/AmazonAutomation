@@ -2,10 +2,13 @@ package main.java.com.reusbales;
 
 import java.util.logging.Logger;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+
 
 public class BasicWebOperations extends WebDriverStartUp{
 	public final static Logger LOGGER = Logger.getLogger(BasicWebOperations.class.getName());
@@ -15,9 +18,13 @@ public class BasicWebOperations extends WebDriverStartUp{
 
 	public void click(By locator) throws Exception
 	{
-		webElement=driver.findElement(locator);
-		webElement.click();
-		LOGGER.info("Clicked: "+locator);
+		try {
+			webElement=driver.findElement(locator);
+			webElement.click();
+			LOGGER.info("Clicked: "+locator);
+		}catch (Exception e) {
+			Assert.fail("Failed to Click "+locator);
+		}
 	
 	}
 	
