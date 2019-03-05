@@ -11,11 +11,15 @@ import org.junit.Test;
 
 
 import main.java.com.reusbales.Components;
+import main.java.com.reusbales.ExcelFunctions;
 import main.java.com.reusbales.WebDriverStartUp;
 
 public class TC01_HomePageValidations extends WebDriverStartUp {
 	
 	Components component=new Components();
+	
+	static String TC001Status="FAIL";
+	static String TC002Status="FAIL";
 	
 	
 
@@ -31,19 +35,27 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 
 		
 		// Assuming Item Should Have Estimated DeliveryDate
-		boolean deliveryDate=component.isDeliveryDataEstimated();
+		
+		if((component.isDeliveryDataEstimated())==true) {
+			TC001Status="PASS";
+		}
 		
 		//Book should be available in Paperback
 		LinkedHashMap<String, String> platformMap=component.returnPlatformAvailability();
+		
+		if(platformMap.get("Paperback").equals("true")) {
+			TC002Status="PASS";
+		}
 		
 		//if Item is Availble then price should be displayed
 		
 	}
 	
 	@AfterClass
-	public void PrintResult() throws Exception
+	public static void PrintResult() throws Exception
 	{
-		
+		ExcelFunctions.writeExcel("", "Results", new String[] {"TC01_DeliveryTextValidation",TC001Status});
+		ExcelFunctions.writeExcel("", "Results", new String[] {"TC02_IsPaperBackAvailable",TC002Status});
 	}
 	
 }
