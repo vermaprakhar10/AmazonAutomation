@@ -10,14 +10,14 @@ Clone the project, all the dependent jars has been attaches with the project its
 
 #Running the tests
 
-Go to config.properties and set desired browser[Chrome/Firefox] and set the amazon locale in the URL parmeter
+Go to config.properties and set desired browser[Chrome/Firefox] and set the amazon locale in the URL parmeter, 
 Go to test.java.testcases package to run the desired Testcases
 Run as junit Application to run the desired testcases
 
 
 #TestScope
 
-Given Project tests the Basic Amazon functionlaties and its core components like webisire launch,
+Given Project tests the Basic Amazon functionlaties and its core components like website launch,
 Selection of Categories (Parametrized) as per the requiremet. Making search and getting results and its other information 
 like Price, Delivery Expected date etc as Assert as per the requirement of the TestScope and Test Matrix
 
