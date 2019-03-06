@@ -52,6 +52,7 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 		//if Item is Availale then price should be displayed
 		try {
 			String price=component.getAllEditionsPrice();
+			Assert.assertEquals("Incorrect price","1,899  2,187",price);
 			TC003Status="PASS";
 		}catch (Exception e) {
 			Assert.fail("Price Not Displayed");
