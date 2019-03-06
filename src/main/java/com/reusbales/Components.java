@@ -2,6 +2,8 @@ package main.java.com.reusbales;
 
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 
@@ -130,13 +132,17 @@ public class Components extends WebDriverStartUp {
 	}
 	
 	
-	public void getAllEditionsPrice() throws Exception
+	public String getAllEditionsPrice() throws Exception
 	{
 		LinkedHashMap<String, String> hMap=returnPlatformAvailability();
+		String price="";
 		
+		ArrayList<String> convertToList=new ArrayList<>(Arrays.asList(parseData.split(" ")));
 		if(hMap.get("Paperback").equals("true")) {
-			
+			price=convertToList.get(1);
 		}
+		
+	return price;
 	}
 
 }

@@ -12,10 +12,13 @@ public class AmazonHomePage extends WebDriverStartUp {
 	private By iconamznavigation=By.id("nav-logo");
 	
 	//dropDowns
-	private By amzDropDown=By.xpath("//*[@id=\"searchDropdownBox\"]");
+	
+	private By amzDropDown=By.xpath("//*[@id='searchDropdownBox']");
+//	private By amzDropDown=By.xpath("//div[@class='nav-search-dropdown searchSelect']");
+	
 	
 	//Buttons
-	private By searchTxtField=By.xpath("//*[@id=\"twotabsearchtextbox\"]");
+	private By searchTxtField=By.xpath("//*[@id='twotabsearchtextbox']");
 	
 	
 	public boolean isAmazonNavLogoVisible() throws Exception

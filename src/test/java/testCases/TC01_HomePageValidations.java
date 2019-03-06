@@ -7,6 +7,7 @@ package test.java.testCases;
 import java.util.LinkedHashMap;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -20,6 +21,7 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 	
 	static String TC001Status="FAIL";
 	static String TC002Status="FAIL";
+	static String TC003Status="FAIL";
 	
 	
 
@@ -32,7 +34,7 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 		component.getTotalSearchResults();
 		component.getItemDescription(1);
 		
-
+	
 		
 		// Assuming Item Should Have Estimated DeliveryDate
 		
@@ -47,8 +49,13 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 			TC002Status="PASS";
 		}
 		
-		//if Item is Availble then price should be displayed
-		
+		//if Item is Availale then price should be displayed
+		try {
+			String price=component.getAllEditionsPrice();
+			TC003Status="PASS";
+		}catch (Exception e) {
+			Assert.fail("Price Not Displayed");
+		}
 	}
 	
 	@AfterClass
@@ -56,6 +63,7 @@ public class TC01_HomePageValidations extends WebDriverStartUp {
 	{
 		ExcelFunctions.writeExcel("", "Results", new String[] {"TC01_DeliveryTextValidation",TC001Status});
 		ExcelFunctions.writeExcel("", "Results", new String[] {"TC02_IsPaperBackAvailable",TC002Status});
+		ExcelFunctions.writeExcel("", "Results", new String[] {"TC02_IsPriceDisplayed",TC003Status});
 	}
 	
 }

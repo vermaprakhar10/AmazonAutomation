@@ -25,7 +25,7 @@ public class WebDriverStartUp {
 		
 		if(configProperties.getString("browser").equalsIgnoreCase("CHROME")) {
 			
-			System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
 			ChromeOptions chromeOptions=new ChromeOptions();
 			chromeOptions.addArguments("disable-infobars");
 			driver = new ChromeDriver(chromeOptions);
